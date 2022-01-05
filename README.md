@@ -1,4 +1,4 @@
 # 🌦️🌥️🌤️🌧️🌨️🌩️🌡️⛈️🌫️☁️
-<h1>jskhskhjh</h1>
-<style>h1{text-align: center;}</style>
+<h1 style{text-align: center;}>jskhskhjh</h1>
+
 
