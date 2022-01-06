@@ -1,188 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <link rel="shortcut icon" href="/img/icons/brightness-high.svg" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="shortcut icon"
+      href="/img/icons/brightness-high.svg"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+    />
     <title>www.weather.com</title>
     <style>
-        .bigbg {
-            background: rgba(0, 0, 0, 0.6);
-        }
+      .bigbg {
+        background: rgba(0, 0, 0, 0.6);
+      }
 
-        .bigbg2 {
-            background: rgba(255, 255, 255, 0.63);
-        }
+      .bigbg2 {
+        background: rgba(255, 255, 255, 0.63);
+      }
 
-        .coloresta {
-            color: rgb(255, 255, 255);
-            font-weight: 500;
-        }
+      .coloresta {
+        color: rgb(255, 255, 255);
+        font-weight: 500;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <div style="z-index: 100000" class="position-absolute collapse" id="navbarToggleExternalContent">
-            <div class="bg-dark p-4" style="height: 100vh">
-                <h5 class="text-white h4">Collapsed content</h5>
-                <span class="text-muted">Toggleable via the navbar brand.</span>
-            </div>
+      <div
+        style="z-index: 10000000000"
+        class="position-absolute collapse"
+        id="navbarToggleExternalContent"
+      >
+        <div class="bg-dark p-4" style="height: 100vh">
+          <div style="color: #fff; text-align: center">
+            <h1 class="text-danger h1">COVID-19</h1>
+            <h4 class="">Cases</h4>
+            <h1 id="cases"></h1>
+            <h4>Deaths</h4>
+            <h1 id="deaths"></h1>
+            <h4>% of Deaths</h4>
+            <h1 id="percent"></h1>
+            <h1 id="country"></h1>
+            <h4>Population</h4>
+            <h1 id="population"></h1>
+            <h4>Last Updated</h4>
+            <h1 id="update"></h1>
+          </div>
         </div>
-        <nav class="navbar fixed-top">
-            <div class="container-fluid d-flex justify-content-center">
-                <div class="searchBox">
-                    <button style="margin-right: 19px" class="bigbg2 navbar-toggler" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent"
-                        aria-controls="navbarToggleExternalContent" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="mt-2 navbar-toggler-icon" style="z-index: 100000"><i
-                                class="bi bi-plus-circle-fill"></i></span>
-                    </button>
-                    <input class="bigbg3" value="tanger" type="text" placeholder="Enter location name" />
-                    <button class="bigbg3">
-                        <i class="px-2 bi bi-geo-alt" alt="search"></i>
-                    </button>
-                </div>
+      </div>
 
-                <button class="ms-3 bigbg2 navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                    <span class="mt-2 navbar-toggler-icon"><i class="bi bi-plus-circle-fill"></i></span>
-                </button>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-                    aria-labelledby="offcanvasNavbarLabel">
-                    <div class="d-flex justify-content-center offcanvas-header">
-                        <h1 class="offcanvas-title h4" id="offcanvasNavbarLabel"
-                            href="https://github.com/Ahmed-Aoulad-Amar">
-                            The Github IPA
-                        </h1>
-                    </div>
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <li class="d-flex justify-content-center nav-item">
-                                <form class="d-flex" id="form">
-                                    <input type="text" id="search" placeholder="Search a Github User" />
-                                    <button type="submit" class="btn">
-                                        <i class="bi bi-github"></i>
-                                    </button>
-                                </form>
-                            </li>
-                            <main id="main"></main>
-                        </ul>
-                    </div>
-                </div>
+      <nav class="navbar fixed-top">
+        <div class="container-fluid d-flex justify-content-center">
+          <div class="searchBox">
+            <button
+              style="margin-right: 19px"
+              class="bigbg2 navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarToggleExternalContent"
+              aria-controls="navbarToggleExternalContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="mt-2 navbar-toggler-icon" style="z-index: 100000"
+                ><i class="bi bi-plus-circle-fill"></i
+              ></span>
+            </button>
+            <input
+              class="bigbg3"
+              value="tanger"
+              type="text"
+              placeholder="Enter location name"
+            />
+            <button class="bigbg3">
+              <i class="px-2 bi bi-geo-alt" alt="search"></i>
+            </button>
+          </div>
+
+          <button
+            class="ms-3 bigbg2 navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+          >
+            <span class="mt-2 navbar-toggler-icon"
+              ><i class="bi bi-plus-circle-fill"></i
+            ></span>
+          </button>
+          <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <div class="d-flex justify-content-center offcanvas-header">
+              <h1
+                class="offcanvas-title h4"
+                id="offcanvasNavbarLabel"
+                href="https://github.com/Ahmed-Aoulad-Amar"
+              >
+                The Github IPA
+              </h1>
             </div>
-        </nav>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="d-flex justify-content-center nav-item">
+                  <form class="d-flex" id="form">
+                    <input
+                      type="text"
+                      id="search"
+                      placeholder="Search a Github User"
+                    />
+                    <button type="submit" class="btn">
+                      <i class="bi bi-github"></i>
+                    </button>
+                  </form>
+                </li>
+                <main id="main"></main>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
     </header>
     <main class="container-fluid">
-        <section>
-            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="img/1.jpg" class="d-block w-100 vh-100"
-                            alt="this is a backround  img reprasint beash" />
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/2.jpg" class="d-block w-100 vh-100"
-                            alt="this is a backround  img reprasint beash" />
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/3.jpg" class="d-block w-100 vh-100"
-                            alt="this is a backround  img reprasint beash" />
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/4.jpg" class="d-block w-100 vh-100"
-                            alt="this is a backround  img reprasint beash" />
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+      <section>
+        <div
+          id="carouselExampleFade"
+          class="carousel slide carousel-fade"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="img/1.jpg"
+                class="d-block w-100 vh-100"
+                alt="this is a backround  img reprasint beash"
+              />
             </div>
-        </section>
-        <section class="container position-absolute end-0" style="z-index: 100; top: 10vh">
-            <h1 style="margin-bottom: 50px; margin-left: 250px; color: #fff">
-                The Open Weather API
-            </h1>
-            <article class="row row-cols-3 gap-5">
-                <div class="col-sm card coloresta bigbg border-warning mb-3" style="max-width: 18rem">
-                    <h3 class="card-header">Weather</h3>
-                    <div class="card-body">
-                        <img src="#" alt="not loaded" id="weatherImg" />
-                        <p class="card-title" id="weatherType"></p>
-                        <p class="card-title" id="weatherDesc"></p>
-                    </div>
-                </div>
+            <div class="carousel-item">
+              <img
+                src="img/2.jpg"
+                class="d-block w-100 vh-100"
+                alt="this is a backround  img reprasint beash"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/3.jpg"
+                class="d-block w-100 vh-100"
+                alt="this is a backround  img reprasint beash"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/4.jpg"
+                class="d-block w-100 vh-100"
+                alt="this is a backround  img reprasint beash"
+              />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleFade"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleFade"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>
+      <section
+        class="container position-absolute end-0"
+        style="z-index: 100; top: 10vh"
+      >
+        <h1 style="margin-bottom: 50px; margin-left: 250px; color: #fff">
+          The Open Weather API
+        </h1>
+        <article class="row row-cols-3 gap-5">
+          <div
+            class="col-sm card coloresta bigbg border-warning mb-3"
+            style="max-width: 18rem"
+          >
+            <h3 class="card-header">Weather</h3>
+            <div class="card-body">
+              <img src="#" alt="not loaded" id="weatherImg" />
+              <p class="card-title" id="weatherType"></p>
+              <p class="card-title" id="weatherDesc"></p>
+            </div>
+          </div>
 
-                <div class="col-sm coloresta bigbg card border-warning mb-3" style="max-width: 18rem">
-                    <h3 class="card-header">location</h3>
-                    <div class="card-body">
-                        <p class="card-title" id="cityName"></p>
-                        <p class="card-title" id="country"></p>
-                        <p class="card-title" id="timeZone"></p>
-                    </div>
-                </div>
-                <div class="col-sm card coloresta bigbg border-warning mb-3" style="max-width: 18rem">
-                    <h3 class="card-header">Temperature</h3>
-                    <div class="card-body">
-                        <div class="temp">
-                            <p></p>
-                            <p></p>
-                            <p></p>
-                            <p></p>
-                            <p></p>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article class="row gap-5">
-                <div class="col-sm card coloresta bigbg border-warning mb-3" style="max-width: 18rem">
-                    <h3 class="card-header">Wind</h3>
-                    <div class="card-body">
-                        <div class="wind">
-                            <p></p>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm card coloresta bigbg border-warning mb-3" style="max-width: 18rem">
-                    <h3 class="card-header">Visibility</h3>
-                    <div class="card-body">
-                        <p id="visibility"></p>
-                    </div>
-                </div>
-                <div class="col-sm card coloresta bigbg border-warning mb-3" style="max-width: 18rem">
-                    <div class="coord">
-                        <h3 class="card-header">Coordinates</h3>
-                        <div class="card-body">
-                            <p></p>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </section>
+          <div
+            class="col-sm coloresta bigbg card border-warning mb-3"
+            style="max-width: 18rem"
+          >
+            <h3 class="card-header">location</h3>
+            <div class="card-body">
+              <p class="card-title" id="cityName"></p>
+              <p class="card-title" id="country"></p>
+              <p class="card-title" id="timeZone"></p>
+            </div>
+          </div>
+          <div
+            class="col-sm card coloresta bigbg border-warning mb-3"
+            style="max-width: 18rem"
+          >
+            <h3 class="card-header">Temperature</h3>
+            <div class="card-body">
+              <div class="temp">
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="row gap-5">
+          <div
+            class="col-sm card coloresta bigbg border-warning mb-3"
+            style="max-width: 18rem"
+          >
+            <h3 class="card-header">Wind</h3>
+            <div class="card-body">
+              <div class="wind">
+                <p></p>
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-sm card coloresta bigbg border-warning mb-3"
+            style="max-width: 18rem"
+          >
+            <h3 class="card-header">Visibility</h3>
+            <div class="card-body">
+              <p id="visibility"></p>
+            </div>
+          </div>
+          <div
+            class="col-sm card coloresta bigbg border-warning mb-3"
+            style="max-width: 18rem"
+          >
+            <div class="coord">
+              <h3 class="card-header">Coordinates</h3>
+              <div class="card-body">
+                <p></p>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
     </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"
-        integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ=="
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"
+      integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
     <script src="fun.js"></script>
-</body>
-
+  </body>
 </html>
