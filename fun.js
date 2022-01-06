@@ -1,3 +1,5 @@
+
+// the globel vars
 const cityName = document.getElementById("cityName");
 const country = document.getElementById("country");
 const timeZone = document.getElementById("timeZone");
@@ -13,6 +15,11 @@ const APIURL = "https://api.github.com/users/";
 const main = document.getElementById("main");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
+
+// the weather  API appliction
+// USING json tchnology with
+// the (AJAX) to getting api using http request
+
 function getData(location) {
   let loc = location;
   let url = `http://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=48ddfe8c9cf29f95b7d0e54d6e171008`;
@@ -74,6 +81,11 @@ searchBtn.addEventListener("click", () => {
     getData(searchVal);
   }
 });
+
+//  THE GITHUB API Aplication get profile by username
+// using json tchnology with
+// tHE axios Lab for geeting API http request
+
 async function getUser(username) {
   try {
     const { data } = await axios(APIURL + username);
@@ -157,3 +169,32 @@ form.addEventListener("submit", (e) => {
     search.value = "";
   }
 });
+// covid-19 api apliction
+// using json tchnology with
+// the vanila javascript (fetch) way of geeting API
+
+window.onload = function() {
+	getCovidStats();
+}
+
+function getCovidStats() {
+	fetch('https://coronavirus-tracker-api.herokuapp.com/v2/locations/225')
+	.then(function(resp) { return resp.json() })
+	.then(function(data) {
+		let population = data.location.country_population;
+		let update = data.location.last_updated;
+		let confirmedCases = data.location.latest.confirmed;
+		let deaths = data.location.latest.deaths;
+
+		document.getElementById('population').innerHTML = population.toLocaleString('en');
+		document.getElementById('update').innerHTML = update.substr(0, 10);
+		document.getElementById('cases').innerHTML = confirmedCases.toLocaleString('en');
+		document.getElementById('deaths').innerHTML = deaths.toLocaleString('en');
+		document.getElementById('percent').innerHTML = ((Number(deaths)/Number(confirmedCases))*100).toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "%";
+
+	})
+	.catch(function() {
+		console.log("error");
+	})
+	setTimeout(getCovidStats, 1000000) //update evry 2,5 minets
+}
